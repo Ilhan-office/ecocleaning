@@ -3,6 +3,3 @@ command = 'C:/Users/Ilhan/Downloads/alshehhi85/EcoCleaning_Separate_HTML_Codebas
 cwd = 'C:/Users/Ilhan/Downloads/alshehhi85/EcoCleaning_Separate_HTML_Codebase/ecocleaning-separate-html'
 startup_timeout_sec = 60
 
-[mcp_servers.codebase-memory.env]
-CBM_CACHE_DIR = 'C:/Users/Ilhan/Downloads/alshehhi85/EcoCleaning_Separate_HTML_Codebase/ecocleaning-separate-html/.tools/cbm-cache'
-CBM_RUNTIME_DIR = 'C:/Users/Ilhan/Downloads/alshehhi85/EcoCleaning_Separate_HTML_Codebase/ecocleaning-separate-html/.tools/cbm-runtime'
