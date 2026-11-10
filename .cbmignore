@@ -1,1 +1,4 @@
 .tools/
+.codex/
+AGENTS.md
+.cbmignore
