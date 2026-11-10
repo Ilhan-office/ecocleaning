@@ -1,3 +1,5 @@
+# AI Tools & Configuration
 .tools/
 .codex/
-AGENTS.md 
+AGENTS.md
+.cbmignore
