@@ -5,11 +5,11 @@
 .values-heading h2 em { color:var(--green2); font-weight:400; }
 .values-heading > p { max-width:285px; color:var(--muted); font-size:.93rem; margin:0 0 5px; }
 .values-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; }
-.value-card { padding:30px; background:#fffdf8; border:1px solid #e0e5d9; border-radius:20px; }
+.value-card { padding:30px; background:#fffdf8; border:1px solid #e0e5d9; border-radius:20px; transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease; }
 .value-card:first-child { background:var(--green); border-color:var(--green); color:#fff; }
 .value-card:nth-child(3) { background:#edf2e8; }
 .value-top { display:flex; align-items:center; justify-content:space-between; margin-bottom:38px; }
-.value-icon { width:58px; height:58px; display:grid; place-items:center; border:1px solid #cddacb; border-radius:18px; color:var(--green2); }
+.value-icon { width:58px; height:58px; display:grid; place-items:center; border:1px solid #cddacb; border-radius:18px; color:var(--green2); transition:background-color .25s ease,border-color .25s ease; }
 .value-icon svg { width:30px; height:30px; }
 .value-number { font-size:.75rem; color:#738379; font-variant-numeric:tabular-nums; }
 .value-kicker { font-size:.62rem; text-transform:uppercase; letter-spacing:1.5px; color:var(--green2); }
@@ -23,3 +23,13 @@
 @media(max-width:950px) { .values-heading { align-items:flex-start; flex-direction:column; gap:20px; } .values-heading > p { max-width:440px; } .value-card { padding:24px; } }
 @media(max-width:700px) { .values-section { padding:40px 6%; border-radius:24px; } .values-grid { grid-template-columns:1fr; gap:14px; } .value-top { margin-bottom:26px; } .values-heading h2 { letter-spacing:-1px; } }
 @media(max-width:950px){.values-heading h2{font-size:clamp(2.2rem,3.23vw,3.5rem)}}
+@media(hover:hover) and (pointer:fine) {
+  .value-card:hover { transform:translateY(-6px); box-shadow:0 16px 32px rgba(23,49,42,.12); border-color:#9ebba5; }
+  .value-card:hover .value-icon { background:#e3eddc; border-color:#9ebba5; }
+  .value-card:first-child:hover { border-color:#58806a; }
+  .value-card:first-child:hover .value-icon { background:#ffffff12; border-color:#94b48d; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .value-card,.value-icon { transition:none; }
+  .value-card:hover { transform:none; }
+}
