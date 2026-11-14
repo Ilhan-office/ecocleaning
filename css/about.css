@@ -22,3 +22,4 @@
 .values-note span { color:var(--green2); font-size:1.1rem; margin-right:7px; }
 @media(max-width:950px) { .values-heading { align-items:flex-start; flex-direction:column; gap:20px; } .values-heading > p { max-width:440px; } .value-card { padding:24px; } }
 @media(max-width:700px) { .values-section { padding:40px 6%; border-radius:24px; } .values-grid { grid-template-columns:1fr; gap:14px; } .value-top { margin-bottom:26px; } .values-heading h2 { letter-spacing:-1px; } }
+@media(max-width:950px){.values-heading h2{font-size:clamp(2.2rem,3.23vw,3.5rem)}}

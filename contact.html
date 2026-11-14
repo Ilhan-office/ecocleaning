@@ -3,30 +3,37 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="EcoCleaning eco-friendly cleaning services coursework website.">
-<title>Contact Us | EcoCleaning</title>
+<meta name="description" content="Use the EcoCleaning demonstration enquiry form for questions about cleaning services, memberships and events.">
+<meta name="keywords" content="EcoCleaning contact, cleaning enquiry, memberships, customer care">
+<title>Contact EcoCleaning | Cleaning and Membership Enquiries</title>
+<link rel="stylesheet" href="css/vendor/slicknav-1.0.10.min.css">
 <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
 <header class="site-header">
-  <div class="utility"><div class="shell utility-inner"><span>Eco-conscious cleaning for homes & workplaces</span><a href="register.html">Register</a></div></div>
+  <div class="utility"><div class="shell utility-inner"><span>Eco-conscious cleaning for homes &amp; workplaces</span><a href="register.html">Register</a></div></div>
   <div class="shell nav-wrap">
-    <a class="logo" href="index.html" aria-label="EcoCleaning home"><span>eco</span>Cleaning<i>●</i></a>
-    <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
-    <nav class="main-nav" aria-label="Main navigation"><ul><li><a  href="index.html">Home</a></li><li><a  href="about_us.html">About Us</a></li><li><a  href="services.html">Services</a></li><li><a  href="packages.html">Packages</a></li><li><a  href="booking.html">Booking</a></li><li><a  href="events.html">Events / News</a></li><li><a class="active" href="contact.html">Contact Us</a></li></ul></nav>
+    <a class="logo" href="index.html" aria-label="EcoCleaning home"><span>eco</span>Cleaning<i aria-hidden="true">&#9679;</i></a>
+    <nav class="main-nav" aria-label="Main navigation"><ul id="main-menu"><li><a href="index.html">Home</a></li><li><a href="about_us.html">About Us</a></li><li><a href="services.html">Services</a><ul class="sub-menu"><li><a href="packages.html">Membership plans</a></li><li><a href="booking.html">Book a service</a></li></ul></li><li><a href="packages.html">Packages</a></li><li><a href="booking.html">Booking</a><ul class="sub-menu"><li><a href="booking.html#staff-tracking">Staff tracking demo</a></li></ul></li><li><a href="events.html">Events / News</a><ul class="sub-menu"><li><a href="register.html">Register for updates</a></li></ul></li><li><a class="active" aria-current="page" href="contact.html">Contact Us</a></li></ul></nav>
     <a class="btn nav-cta" href="booking.html">Book Now</a>
+    <nav id="mobile-menu" aria-label="Mobile navigation"></nav>
   </div>
 </header>
-<main>
+<main id="main-content" tabindex="-1">
 <section class="page-hero"><span class="eyebrow">Contact us</span><h1>How can we help?</h1><p>Ask about services, office contracts, events or an existing booking.</p></section>
 <section class="section form-layout">
-<form id="contactForm" class="form-card" novalidate><h2>Send a message</h2><div class="form-grid">
-<label>Full name<input type="text" name="name" required minlength="2"></label>
-<label>Email<input type="email" name="email" required></label>
-<label class="full">Subject<input type="text" name="subject" required minlength="3"></label>
-<label class="full">Message<textarea name="message" rows="6" required minlength="10"></textarea></label>
-</div><div class="form-message" aria-live="polite"></div><button class="btn" type="submit">Send Message</button></form>
-<aside class="feature-box"><span class="eyebrow">EcoCleaning</span><h2>Let’s talk clean.</h2><p><b>Email</b><br>hello@ecocleaning.example</p><p><b>Phone</b><br>+44 0000 000000</p><p><b>Hours</b><br>Mon–Fri: 8:00–18:00<br>Sat: 9:00–15:00</p><p class="note">Contact details are fictional placeholders for coursework demonstration.</p></aside>
+<form id="contactForm" class="form-card"><h2>Send a message</h2><div class="form-grid">
+<label>Full name<input type="text" name="name" required minlength="2" maxlength="160" autocomplete="name" placeholder="Full name"></label>
+<label>Email<input type="email" name="email" required maxlength="254" autocomplete="email" placeholder="name@example.com"></label>
+<label class="full">Subject<input type="text" name="subject" required minlength="3" maxlength="160" placeholder="What is your enquiry about?"></label>
+<label class="full">Message<textarea name="message" rows="6" required minlength="10" maxlength="2000" placeholder="Enter at least 10 characters"></textarea></label>
+</div><div class="form-message" role="status" tabindex="-1" aria-live="polite"></div><noscript><p>Enable JavaScript to use this demonstration form. No data will be sent.</p></noscript><button class="btn" type="submit" disabled>Send Message</button></form>
+<aside class="feature-box"><span class="eyebrow">Customer care</span><h2>Chloe Walters</h2><p><strong>Customer Care Coordinator</strong></p><p>Handles bookings, scheduling, and queries.</p><p class="note">This is a demonstration form. Your message is validated locally and is not sent. Contact details and opening hours are not provided in the case study.</p></aside>
+</section>
+<section class="section resource-section" aria-labelledby="mission-title">
+  <div><span class="eyebrow">Our mission</span><h2 id="mission-title">A spotless home, without harming the planet.</h2><p>EcoCleaning uses only toxin-free, plant-based cleaning solutions.</p></div>
+  <aside class="resource-aside" aria-labelledby="resources-title"><h2 id="resources-title">Useful resources</h2><ul><li><a href="packages.html">Compare membership plans</a></li><li><a href="events.html">Events and promotions</a></li><li><a href="register.html">Register for updates</a></li><li><a href="booking.html#staff-tracking">Staff tracking demo</a></li></ul></aside>
 </section>
 </main>
 <footer>
@@ -35,8 +42,9 @@
     <div><h3>Explore</h3><a href="services.html">Services</a><a href="packages.html">Packages</a><a href="events.html">Events & News</a></div>
     <div><h3>Customer</h3><a href="booking.html">Book Online</a><a href="register.html">Register</a><a href="contact.html">Contact</a></div>
   </div>
-  <div class="shell copyright">© 2026 EcoCleaning. Coursework demonstration website.</div>
+  <div class="shell copyright">&copy; 2026 EcoCleaning. Coursework demonstration website.</div>
 </footer>
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="js/vendor/jquery-3.7.1.min.js"></script>
+<script src="js/vendor/jquery.slicknav-1.0.10.min.js"></script>
 <script src="js/script.js"></script>
 </body></html>

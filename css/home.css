@@ -114,3 +114,5 @@
 .services-footnote { margin-top:22px; }
 }
 @media(prefers-reduced-motion:reduce) { .service-tile,.service-arrow { transition:none; } .service-tile:hover { transform:none; } }
+@media(max-width:950px){.home-hero h1{font-size:clamp(2.3rem,4.25vw,3rem)}.services-heading h2{font-size:clamp(2.2rem,3.23vw,3.5rem)}}
+@media(max-width:700px){.home-hero h1{font-size:clamp(2.65rem,7.65vw,3.65rem)}}

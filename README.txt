@@ -1,24 +1,16 @@
-EcoCleaning Coursework Website
+EcoCleaning DAM104 Coursework Website
 
-Open index.html in a browser.
+Extract the complete project and open index.html directly in a current browser.
+No Live Server, npm, web server or internet connection is required.
+Enable JavaScript for SlickNav navigation, forms and local appointment tracking.
 
-Separate pages:
-- index.html
-- about_us.html
-- services.html
-- packages.html
-- booking.html
-- events.html
-- contact.html
-- register.html
+Pages: index.html, about_us.html, services.html, packages.html, booking.html,
+events.html, contact.html, register.html.
 
-Shared assets:
-- css/main.css
-- js/script.js
+See README.md for running instructions, implemented features and limitations.
+See ASSIGNMENT-AUDIT.md for the case-study, assignment and rubric audit.
+EcoCleaning-Documentation.pdf is the implementation report (maximum 500 words).
+EcoCleaning-Submission.zip is the clean submission package.
 
-Notes:
-- Responsive 95% fluid layout with max-width 1300px.
-- Breakpoints at 950px and 700px.
-- Mobile navigation uses jQuery.
-- Booking, contact and registration forms include client-side validation.
-- Demo prices/contact details are fictional placeholders.
+All functionality is frontend-only. No real booking, payment, registration or
+enquiry is transmitted. Demo appointments disappear on page reload/navigation.

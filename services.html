@@ -3,27 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="EcoCleaning eco-friendly cleaning services coursework website.">
-<title>Services | EcoCleaning</title>
+<meta name="description" content="Explore Eco Home Cleaning Packages, Deep Green Clean, Pet-Safe Cleaning and Office Eco-Cleaning Contracts.">
+<meta name="keywords" content="Eco Home Cleaning Packages, Deep Green Clean, Pet-Safe Cleaning, Office Eco-Cleaning Contracts">
+<title>EcoCleaning Services | Home, Deep, Pet-Safe and Office Cleaning</title>
+<link rel="stylesheet" href="css/vendor/slicknav-1.0.10.min.css">
 <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
 <header class="site-header">
-  <div class="utility"><div class="shell utility-inner"><span>Eco-conscious cleaning for homes & workplaces</span><a href="register.html">Register</a></div></div>
+  <div class="utility"><div class="shell utility-inner"><span>Eco-conscious cleaning for homes &amp; workplaces</span><a href="register.html">Register</a></div></div>
   <div class="shell nav-wrap">
-    <a class="logo" href="index.html" aria-label="EcoCleaning home"><span>eco</span>Cleaning<i>●</i></a>
-    <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
-    <nav class="main-nav" aria-label="Main navigation"><ul><li><a  href="index.html">Home</a></li><li><a  href="about_us.html">About Us</a></li><li><a class="active" href="services.html">Services</a></li><li><a  href="packages.html">Packages</a></li><li><a  href="booking.html">Booking</a></li><li><a  href="events.html">Events / News</a></li><li><a  href="contact.html">Contact Us</a></li></ul></nav>
+    <a class="logo" href="index.html" aria-label="EcoCleaning home"><span>eco</span>Cleaning<i aria-hidden="true">&#9679;</i></a>
+    <nav class="main-nav" aria-label="Main navigation"><ul id="main-menu"><li><a href="index.html">Home</a></li><li><a href="about_us.html">About Us</a></li><li><a class="active" aria-current="page" href="services.html">Services</a><ul class="sub-menu"><li><a href="packages.html">Membership plans</a></li><li><a href="booking.html">Book a service</a></li></ul></li><li><a href="packages.html">Packages</a></li><li><a href="booking.html">Booking</a><ul class="sub-menu"><li><a href="booking.html#staff-tracking">Staff tracking demo</a></li></ul></li><li><a href="events.html">Events / News</a><ul class="sub-menu"><li><a href="register.html">Register for updates</a></li></ul></li><li><a href="contact.html">Contact Us</a></li></ul></nav>
     <a class="btn nav-cta" href="booking.html">Book Now</a>
+    <nav id="mobile-menu" aria-label="Mobile navigation"></nav>
   </div>
 </header>
-<main>
+<main id="main-content" tabindex="-1">
 <section class="page-hero"><span class="eyebrow">Our services</span><h1>Eco-cleaning designed around your needs.</h1><p>From regular home care to deep cleaning and workplace contracts.</p></section>
 <section class="section service-list">
-  <article class="service-row"><div class="service-no">01</div><div><h2>Eco Home Cleaning</h2><p>Ideal for regular upkeep. Includes key living areas, surfaces, floors, kitchens and bathrooms using eco-conscious cleaning choices.</p><div class="tags"><span>Routine care</span><span>Homes</span><span>Flexible schedule</span></div></div><a class="btn btn-outline" href="booking.html">Book</a></article>
-  <article class="service-row"><div class="service-no">02</div><div><h2>Deep Green Clean</h2><p>A more detailed cleaning for seasonal refreshes, move-in preparation or spaces that need extra attention.</p><div class="tags"><span>Detailed clean</span><span>Refresh</span><span>High attention</span></div></div><a class="btn btn-outline" href="booking.html">Book</a></article>
-  <article class="service-row"><div class="service-no">03</div><div><h2>Pet-Safe Cleaning</h2><p>Designed for pet-friendly homes with special attention to frequently used surfaces, floors and shared living areas.</p><div class="tags"><span>Pet homes</span><span>Gentle choices</span><span>Living areas</span></div></div><a class="btn btn-outline" href="booking.html">Book</a></article>
-  <article class="service-row"><div class="service-no">04</div><div><h2>Office Eco-Cleaning Contracts</h2><p>Recurring workplace cleaning plans with scheduling options suitable for offices and small commercial spaces.</p><div class="tags"><span>Business</span><span>Contracts</span><span>Recurring</span></div></div><a class="btn btn-outline" href="contact.html">Enquire</a></article>
+  <article class="service-row"><div class="service-no" aria-hidden="true">01</div><div><h2>Eco Home Cleaning Packages</h2><p>Eco Home Cleaning Packages use toxin-free, plant-based cleaning solutions.</p></div><a class="btn btn-outline" href="booking.html?service=Eco%20Home%20Cleaning%20Packages">Book</a></article>
+  <article class="service-row"><div class="service-no" aria-hidden="true">02</div><div><h2>Deep Green Clean</h2><p>Deep Green Clean is the EcoCleaning deep clean service.</p></div><a class="btn btn-outline" href="booking.html?service=Deep%20Green%20Clean">Book</a></article>
+  <article class="service-row"><div class="service-no" aria-hidden="true">03</div><div><h2>Pet-Safe Cleaning</h2><p>Pet-Safe Cleaning is one of the EcoCleaning services.</p></div><a class="btn btn-outline" href="booking.html?service=Pet-Safe%20Cleaning">Book</a></article>
+  <article class="service-row"><div class="service-no" aria-hidden="true">04</div><div><h2>Office Eco-Cleaning Contracts</h2><p>EcoCleaning also offers Office Eco-Cleaning Contracts.</p></div><a class="btn btn-outline" href="contact.html">Enquire</a></article>
+</section>
+<section class="section resource-section" aria-labelledby="mission-title">
+  <div><span class="eyebrow">Our mission</span><h2 id="mission-title">A spotless home, without harming the planet.</h2><p>EcoCleaning uses only toxin-free, plant-based cleaning solutions.</p></div>
+  <aside class="resource-aside" aria-labelledby="resources-title"><h2 id="resources-title">Useful resources</h2><ul><li><a href="packages.html">Compare membership plans</a></li><li><a href="events.html">Events and promotions</a></li><li><a href="register.html">Register for updates</a></li><li><a href="booking.html#staff-tracking">Staff tracking demo</a></li></ul></aside>
 </section>
 </main>
 <footer>
@@ -32,8 +39,9 @@
     <div><h3>Explore</h3><a href="services.html">Services</a><a href="packages.html">Packages</a><a href="events.html">Events & News</a></div>
     <div><h3>Customer</h3><a href="booking.html">Book Online</a><a href="register.html">Register</a><a href="contact.html">Contact</a></div>
   </div>
-  <div class="shell copyright">© 2026 EcoCleaning. Coursework demonstration website.</div>
+  <div class="shell copyright">&copy; 2026 EcoCleaning. Coursework demonstration website.</div>
 </footer>
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="js/vendor/jquery-3.7.1.min.js"></script>
+<script src="js/vendor/jquery.slicknav-1.0.10.min.js"></script>
 <script src="js/script.js"></script>
 </body></html>

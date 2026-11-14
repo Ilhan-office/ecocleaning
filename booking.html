@@ -3,40 +3,53 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="EcoCleaning eco-friendly cleaning services coursework website.">
-<title>Booking | EcoCleaning</title>
+<meta name="description" content="Plan a one-time or recurring EcoCleaning appointment and manage staff assignments in a browser-only demonstration.">
+<meta name="keywords" content="EcoCleaning booking, recurring appointments, staff tracking, cleaning schedule">
+<title>EcoCleaning Booking | Recurring Schedule and Staff Tracking Demo</title>
+<link rel="stylesheet" href="css/vendor/slicknav-1.0.10.min.css">
 <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
 <header class="site-header">
-  <div class="utility"><div class="shell utility-inner"><span>Eco-conscious cleaning for homes & workplaces</span><a href="register.html">Register</a></div></div>
+  <div class="utility"><div class="shell utility-inner"><span>Eco-conscious cleaning for homes &amp; workplaces</span><a href="register.html">Register</a></div></div>
   <div class="shell nav-wrap">
-    <a class="logo" href="index.html" aria-label="EcoCleaning home"><span>eco</span>Cleaning<i>●</i></a>
-    <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
-    <nav class="main-nav" aria-label="Main navigation"><ul><li><a  href="index.html">Home</a></li><li><a  href="about_us.html">About Us</a></li><li><a  href="services.html">Services</a></li><li><a  href="packages.html">Packages</a></li><li><a class="active" href="booking.html">Booking</a></li><li><a  href="events.html">Events / News</a></li><li><a  href="contact.html">Contact Us</a></li></ul></nav>
+    <a class="logo" href="index.html" aria-label="EcoCleaning home"><span>eco</span>Cleaning<i aria-hidden="true">&#9679;</i></a>
+    <nav class="main-nav" aria-label="Main navigation"><ul id="main-menu"><li><a href="index.html">Home</a></li><li><a href="about_us.html">About Us</a></li><li><a href="services.html">Services</a><ul class="sub-menu"><li><a href="packages.html">Membership plans</a></li><li><a href="booking.html">Book a service</a></li></ul></li><li><a href="packages.html">Packages</a></li><li><a class="active" aria-current="page" href="booking.html">Booking</a><ul class="sub-menu"><li><a href="booking.html#staff-tracking">Staff tracking demo</a></li></ul></li><li><a href="events.html">Events / News</a><ul class="sub-menu"><li><a href="register.html">Register for updates</a></li></ul></li><li><a href="contact.html">Contact Us</a></li></ul></nav>
     <a class="btn nav-cta" href="booking.html">Book Now</a>
+    <nav id="mobile-menu" aria-label="Mobile navigation"></nav>
   </div>
 </header>
-<main>
+<main id="main-content" tabindex="-1">
 <section class="page-hero"><span class="eyebrow">Online booking</span><h1>Schedule your eco-cleaning visit.</h1><p>Complete the form below. Required fields are validated before submission.</p></section>
 <section class="section form-layout">
-<form id="bookingForm" class="form-card" novalidate>
-<h2>Booking details</h2>
+<form id="bookingForm" class="form-card" aria-describedby="booking-help">
+<h2>Booking details</h2><p id="booking-help" class="note">All fields except special notes are required. This demo keeps appointment details only while this page remains open. No payment or live booking is made.</p>
 <div class="form-grid">
-<label>Full name<input type="text" name="name" required minlength="2"></label>
-<label>Email<input type="email" name="email" required></label>
-<label>Phone<input type="tel" name="phone" required pattern="[0-9 +()-]{7,20}"></label>
-<label>Service<select name="service" required><option value="">Select service</option><option>Eco Home Cleaning</option><option>Deep Green Clean</option><option>Pet-Safe Cleaning</option><option>Office Eco-Cleaning Contract</option></select></label>
-<label>Package<select name="package" required><option value="">Select package</option><option>Fresh Start</option><option>Green Plus</option><option>Deep Green</option><option>Office Care</option></select></label>
+<label>Full name<input type="text" name="name" required minlength="2" maxlength="160" autocomplete="name" placeholder="Full name"></label>
+<label>Email<input type="email" name="email" required maxlength="254" autocomplete="email" placeholder="name@example.com"></label>
+<label>Phone<input type="tel" name="phone" autocomplete="tel" inputmode="tel" placeholder="e.g. +44 7700 900123" required pattern="[0-9 +\(\)\-]{7,20}" title="Use 7-20 characters: digits, spaces, +, parentheses or hyphens."></label>
+<label>Service<select name="service" required><option value="">Select service</option><option>Eco Home Cleaning Packages</option><option>Deep Green Clean</option><option>Pet-Safe Cleaning</option><option>Office Eco-Cleaning Contracts</option></select></label>
+<label>Membership plan<select name="package" required><option value="">Select membership plan</option><option>Basic Fresh Plan</option><option>GreenHome Plan</option><option>Ultimate EcoCare</option></select></label>
 <label>Frequency<select name="frequency" required><option>One-time</option><option>Weekly</option><option>Fortnightly</option><option>Monthly</option></select></label>
+<label id="occurrences-field" hidden>Number of appointments (demo)<input type="number" name="occurrences" min="2" max="12" value="4" disabled><span class="field-hint">Create 2-12 appointments to preview recurrence.</span></label>
 <label>Date<input id="bookingDate" type="date" name="date" required></label>
 <label>Preferred time<select name="time" required><option value="">Select time</option><option>09:00</option><option>11:00</option><option>14:00</option><option>16:00</option></select></label>
-<label class="full">Address<textarea name="address" rows="3" required></textarea></label>
-<label class="full">Special notes<textarea name="notes" rows="4" placeholder="Access details, pets, priorities, etc."></textarea></label>
+<label class="full">Address<textarea name="address" rows="3" required minlength="5" maxlength="500" autocomplete="street-address"></textarea></label>
+<label class="full">Special notes<textarea name="notes" rows="4" maxlength="1000" placeholder="Access details, pets, priorities, etc."></textarea></label>
 </div>
-<div class="form-message" aria-live="polite"></div><button class="btn" type="submit">Request Booking</button>
+<div class="form-message" role="status" tabindex="-1" aria-live="polite"></div><noscript><p>Enable JavaScript to use this demonstration form. No data will be sent.</p></noscript><button class="btn" type="submit" disabled>Request Booking</button>
 </form>
-<aside class="feature-box sticky"><span class="eyebrow">Booking guide</span><h2>What happens next?</h2><ol class="number-list"><li><b>Submit your request</b><span>Choose the service, package and schedule.</span></li><li><b>We confirm the visit</b><span>Your booking details are checked and confirmed.</span></li><li><b>Team assignment</b><span>Your cleaning appointment is assigned to staff.</span></li></ol><p class="note">This coursework demo does not process real payments or create live appointments.</p></aside>
+<aside class="feature-box sticky"><span class="eyebrow">Booking guide</span><h2>Try the booking process</h2><ol class="number-list"><li><b>Choose</b><span>Select a service, membership plan and frequency.</span></li><li><b>Schedule</b><span>Preview up to 12 recurring appointments.</span></li><li><b>Track</b><span>Assign a responsible staff member and update demo appointment status below.</span></li></ol><p class="note">No real appointment is created, and staff availability is not checked.</p></aside>
+</section>
+<section id="staff-tracking" class="section" aria-labelledby="tracking-title"><div class="section-head"><span class="eyebrow">Staff tracking demonstration</span><h2 id="tracking-title">Appointment schedule</h2><p id="tracking-help">Validated bookings appear here. Assign a responsible staff member and update progress. These are local demonstration records, not live staff locations or confirmed visits. Reloading or leaving this page clears them.</p></div>
+<p id="schedule-empty">No demo appointments yet. Complete the booking form to add a schedule.</p>
+<div id="schedule-table" class="table-wrap" role="region" aria-label="Demo appointment schedule" tabindex="0" hidden><table><caption>Appointments and responsible staff</caption><thead><tr><th scope="col">Reference</th><th scope="col">Service and plan</th><th scope="col">Date / time</th><th scope="col">Responsible staff</th><th scope="col">Status</th></tr></thead><tbody id="schedule-rows"></tbody></table></div>
+<p id="tracking-message" class="form-message" role="status" aria-live="polite"></p><button id="clear-schedule" type="button" class="btn btn-outline" disabled>Clear demo schedule</button>
+</section>
+<section class="section resource-section" aria-labelledby="mission-title">
+  <div><span class="eyebrow">Our mission</span><h2 id="mission-title">A spotless home, without harming the planet.</h2><p>EcoCleaning uses only toxin-free, plant-based cleaning solutions.</p></div>
+  <aside class="resource-aside" aria-labelledby="resources-title"><h2 id="resources-title">Useful resources</h2><ul><li><a href="packages.html">Compare membership plans</a></li><li><a href="events.html">Events and promotions</a></li><li><a href="register.html">Register for updates</a></li><li><a href="booking.html#staff-tracking">Staff tracking demo</a></li></ul></aside>
 </section>
 </main>
 <footer>
@@ -45,8 +58,9 @@
     <div><h3>Explore</h3><a href="services.html">Services</a><a href="packages.html">Packages</a><a href="events.html">Events & News</a></div>
     <div><h3>Customer</h3><a href="booking.html">Book Online</a><a href="register.html">Register</a><a href="contact.html">Contact</a></div>
   </div>
-  <div class="shell copyright">© 2026 EcoCleaning. Coursework demonstration website.</div>
+  <div class="shell copyright">&copy; 2026 EcoCleaning. Coursework demonstration website.</div>
 </footer>
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="js/vendor/jquery-3.7.1.min.js"></script>
+<script src="js/vendor/jquery.slicknav-1.0.10.min.js"></script>
 <script src="js/script.js"></script>
 </body></html>

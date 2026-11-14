@@ -1,92 +1,70 @@
 # EcoCleaning
 
-A static, eight-page coursework website presenting cleaning services, package comparisons, events, and browser-based booking, contact and registration demonstrations. Forms validate locally and display feedback; they do not submit data to a backend.
-
-## Technology stack
-
-- HTML5 and CSS3, including custom properties, Grid, Flexbox and media queries.
-- JavaScript with jQuery 3.7.1 loaded from code.jquery.com.
-- Lucide 0.468.0 icons loaded from jsDelivr on the homepage; inline SVG icons on the About page.
-- System fonts (Arial/Helvetica and Georgia) and a local WebP hero image.
-- No build process, npm packages or application server required.
-
-## Folder structure
-
-```text
-ecocleaning-separate-html/
-|-- index.html
-|-- about_us.html
-|-- services.html
-|-- packages.html
-|-- booking.html
-|-- events.html
-|-- contact.html
-|-- register.html
-|-- css/
-|   |-- main.css       # Shared layout, components and responsive rules
-|   |-- home.css       # Homepage hero and service cards
-|   `-- about.css      # About-page values section
-|-- js/
-|   `-- script.js      # Menu interaction and form validation
-|-- images/
-|   |-- eco-cleaning-hero.webp
-|   `-- README.md
-|-- EcoCleaning-Documentation.pdf
-|-- README.md
-`-- README.txt
-```
-
-Local tooling under `.tools/` and agent configuration are development resources, not website assets.
-
-## Available pages
-
-| File | Content |
-| --- | --- |
-| `index.html` | Hero image, service cards, process and booking links |
-| `about_us.html` | Project story and values |
-| `services.html` | Four service descriptions with booking/enquiry links |
-| `packages.html` | Four-package comparison table and demonstration prices |
-| `booking.html` | Contact details, service, package, frequency, date, time, address and optional notes |
-| `events.html` | Static event/news cards and related links |
-| `contact.html` | Enquiry form and fictional contact details |
-| `register.html` | Demonstration registration form |
+An eight-page DAM104 coursework website for EcoCleaning's toxin-free, plant-based cleaning services. Business names, staff, testimonials, promotions, membership prices and benefits follow the supplied November 2026 Case Study. Booking and staff tracking are browser-only demonstrations.
 
 ## Run locally
 
-1. Download or extract the complete project, retaining its folder structure.
-2. Double-click `index.html`, or use a browser's **Open File** command to open it.
-3. Follow the relative links to the remaining pages. No Live Server, npm or terminal command is needed.
+Extract the complete project and double-click **index.html**, or use your browser's **Open File** command. Keep the folders together and follow the page links. No Live Server, npm, installation, internet connection or web server is needed. Enable JavaScript for mobile navigation and forms.
 
-Allow internet access for jQuery and homepage Lucide icons. Without jQuery, the mobile menu and scripted form validation/feedback do not operate. The forms use `novalidate`, so their normal validation flow depends on the script. Local styles, images and ordinary page links do not require a network connection.
+## Technology and structure
 
-## Navigation and implemented features
+HTML5; CSS custom properties, Grid, Flexbox and media queries; JavaScript; jQuery 3.7.1; SlickNav 1.0.10; Lucide 0.468.0. All browser libraries are bundled locally with their licenses. Typography uses system fonts.
 
-- Repeated sticky header with seven primary links and active styling; registration links in the utility bar and footer.
-- At widths up to 700px, a button toggles the mobile navigation and updates `aria-expanded`. Selecting a navigation link closes the menu.
-- Shared 95%-width containers capped at 1300px. Main layout breakpoints are 950px and 700px; homepage styles include additional adjustments at 1050px and 951-1100px.
-- Responsive cards and forms; the package table scrolls horizontally when needed.
-- Semantic landmarks, labelled form controls, polite live feedback, input focus outlines, descriptive hero-image alternative text and reduced-motion rules for home service-card transitions.
-- Distinct page titles, a shared meta description, English language declarations and viewport metadata.
+```text
+index.html, about_us.html, services.html, packages.html
+booking.html, events.html, contact.html, register.html
+css/                         main.css, home.css, about.css
+css/vendor/                  SlickNav styles
+js/                          script.js
+js/vendor/                   jQuery, SlickNav, Lucide and licenses
+images/                      Hero WebP and image provenance
+EcoCleaning-Documentation.pdf Implementation report (maximum 500 words)
+ASSIGNMENT-AUDIT.md           Requirements, evidence and remaining limits
+```
+
+Development tools, backups and checks in `.tools/` are excluded from website assets and the submission ZIP.
+
+## Pages and features
+
+| Page | Implemented content |
+| --- | --- |
+| `index.html` | Hero, four services, process, three supplied testimonials and booking links |
+| `about_us.html` | Establishment in 2015, mission, environmental commitment and three named staff |
+| `services.html` | Four case-study services with booking/enquiry links |
+| `packages.html` | Accessible comparison table: Basic Fresh Plan (£14.99/month), GreenHome Plan (£29.99/month), Ultimate EcoCare (£49.99/month), with exact supplied benefits |
+| `booking.html` | Validated booking, one-time or recurring date generation, staff assignments and appointment status demo |
+| `events.html` | Four supplied events/promotions; links preselect registration interest |
+| `contact.html` | Validated enquiry demonstration and supplied customer-care role |
+| `register.html` | Updates/event registration with required address and telephone, optional comments, and existing password checks |
+
+Every page has a left-aligned home-linked wordmark, consistent two-tier navigation, resource aside, original dark footer, descriptive metadata, semantic landmarks and skip link. SlickNav replaces desktop navigation at 700px and below. Shared layout changes occur at 950px and 700px; the font baseline is 85% at 950px and below. Containers are 95% wide up to 1300px. Tables scroll locally on narrow screens. Homepage CSS has additional responsive refinements.
 
 ## Form validation
 
-All three forms intercept submission using jQuery, call native `checkValidity()` and `reportValidity()`, and display success/error feedback. Successful validation resets the form.
+All forms prevent network submission, trim ordinary text, validate required fields and lengths, display native validity prompts and live feedback, and reset on success. Invalid controls receive `aria-invalid`. Submit buttons stay disabled until JavaScript is ready.
 
-| Form | Implemented rules |
+| Form | Rules |
 | --- | --- |
-| Booking | Name: at least 2 characters; email: native email validity; phone: 7-20 characters matching `[0-9 +()-]{7,20}`. Service, package, frequency, date, preferred time and address are required; frequency defaults to One-time. The minimum date is set to the local current date when the page loads. Special notes are optional. |
-| Contact | Name: at least 2 characters; valid email; subject: at least 3 characters; message: at least 10 characters. All fields are required. |
-| Registration | First and last names: at least 2 characters; valid email; both password fields: at least 8 characters; passwords must match and contain at least one letter and one digit. Terms checkbox is required. |
+| Booking | Name: 2-160 characters; valid email; phone: 7-20 permitted characters including at least 7 digits; required service, membership, frequency, date, time and address (5-500 characters). Notes optional, up to 1000 characters. Dates cannot precede the local current date. Recurring bookings require an integer count of 2-12. |
+| Contact | Name: 2-160 characters; valid email; subject: 3-160 characters; message: 10-2000 characters. |
+| Registration | First/last names: 2-80 characters each; valid email; phone as above; address: 5-500 characters; updates/event interest; acknowledgement checkbox. Password and confirmation: 8-128 characters, matching, with a letter and digit. Comments optional, up to 1000 characters. |
+
+The tracker retains only service, membership, frequency, date/time, demo reference, staff assignment and status while the booking page is open. Monthly recurrence clamps to the month's last day, then restores the original day when possible. Status cannot become Assigned without a responsible staff member. The schedule can be cleared.
 
 ## Known limitations
 
-- Frontend only: no database, authentication, account persistence, enquiry delivery, payment processing, appointment creation, staff assignment or availability checks. Booking-guide text describes a proposed process, not implemented automation.
-- Service/package links open destination pages without preselecting form values. Frequency selections do not create recurring appointments.
-- Client-side validation is not server-side security. Names/addresses are not trimmed or semantically verified; the phone pattern checks allowed characters and length, not a real telephone number.
-- Contact details and prices are coursework placeholders; events are static content.
-- All pages use the same meta description. Accessibility conformance and a full cross-browser test matrix have not been established.
-- The DAM104 Assignment Instructions, Case Study and Rubric were unavailable during this documentation pass; compliance against those documents has not been verified.
+- No server, database, authentication, real booking confirmation, availability checking, payment, enquiry delivery, account persistence or subscription activation. The tracker is an in-memory demonstration, not live staff location tracking. Reloading or leaving the booking page clears records.
+- Staff names and roles follow the case study; assigning a responsible member demonstrates tracking and does not assert that management staff perform cleaning visits.
+- The case study supplies no contact details, opening hours, event dates/locations, discount percentages or per-clean prices; these are not invented.
+- Client-side checks do not verify real addresses, telephone ownership or email deliverability and do not replace server-side validation.
+- “Mint orange” is not a standard CSS colour. Resource links use warm pastel orange (`#ffd0a8`), violet visited and cyan hover/focus on dark green. The impossible CSS instruction “float the logo to the centre” is implemented as visual centring with Grid.
 
-## Browser compatibility
+## Verification and browser compatibility
 
-Use a current Chrome, Edge, Firefox or Safari release. The implementation relies on Grid, Flexbox, CSS custom properties, `clamp()`, `:focus-visible`, `FormData`, `Object.fromEntries()` and `String.padStart()`. Older browsers, including Internet Explorer, are unsuitable. Date-picker presentation and validation messages vary by browser. These are source-based compatibility expectations, not claims of completed browser testing.
+Direct offline `file://` checks cover all eight pages at 320, 375, 700, 701, 768, 950, 951, 1300 and 1600px, keyboard/mobile navigation, form success and failure cases, and recurring-date/staff-tracking behaviour. Local file, asset and fragment targets are checked. See the audit for browser results and scope.
+
+Use current Chrome, Edge, Firefox or Safari. The code requires modern Grid, Flexbox, CSS custom properties, `clamp()`, `:focus-visible`, `URLSearchParams`, `FormData` and `Object.fromEntries()`. Chrome and Edge were tested; Firefox, Safari, physical devices and assistive technologies were not tested here. Internet Explorer is unsupported. Native date pickers and validation messages vary by browser.
+
+## Submission
+
+`EcoCleaning-Submission.zip` contains the eight pages, required local assets, README, audit and PDF. Extract it and open `index.html`. Tooling, caches, Git metadata and backups are excluded. Review your programme's originality and AI-use disclosure rules before submitting; no grade or full accessibility certification is claimed.
