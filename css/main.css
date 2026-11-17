@@ -48,19 +48,29 @@ button:disabled{cursor:not-allowed;opacity:.6}#schedule-table select{min-width:1
 .section-head h2,.split h2,.band h2,.cta h2{font-size:clamp(2rem,3.4vw,3.5rem)}
 .resource-section>div>h2{font-size:clamp(1.75rem,2.125vw,2.15rem)}
 }
-/* Restore the original header and footer appearance at the user's request. */
-.nav-wrap{display:flex;align-items:center;gap:26px;min-height:82px;padding:0}
-.site-header .logo{margin:0;padding:0;font-size:1.55rem;line-height:1.65}
-.main-nav{margin-left:auto}.main-nav>ul{gap:22px}.main-nav>ul>li>a{padding:30px 0}
-.nav-cta{position:static;flex-shrink:0}
-footer{color:#d8e6e0}footer .footer-grid p{color:#9fb9ae}footer .footer-grid h3,footer .footer-logo{color:#fff}footer .copyright{color:#8fa99f}footer .footer-logo span{color:var(--green2)}
-@media(min-width:951px) and (max-width:1150px){.nav-wrap{gap:16px}.main-nav>ul{gap:12px}.main-nav>ul>li>a{font-size:.84rem}.nav-cta{padding:8px 12px}}
-@media(max-width:950px){.main-nav>ul{gap:clamp(8px,1.5vw,18px)}}
+/* Header: company logo image centred above a centred two-tier navigation. */
+.nav-wrap{position:relative;display:grid;grid-template-columns:1fr;justify-items:center;gap:0;min-height:0;padding:10px 0 0}
+.site-header .logo{display:block;margin:0;padding:0;line-height:0;justify-self:center}
+.site-header .logo img{display:block;width:clamp(150px,24vw,240px);max-width:100%;height:auto}
+.main-nav{margin:0;justify-self:center}.main-nav>ul{gap:clamp(10px,2vw,26px)}.main-nav>ul>li>a{padding:14px 0}
+.nav-cta{position:absolute;right:0;top:14px;flex-shrink:0}
+@media(min-width:951px) and (max-width:1150px){.main-nav>ul{gap:14px}.main-nav>ul>li>a{font-size:.86rem}}
+@media(max-width:950px){.nav-cta{display:none}}
+/* Footer text is lavender on every page (overrides earlier colour rules). */
+footer,footer a,footer .footer-grid p,footer .footer-grid h3,footer .copyright,footer .footer-logo{color:lavender}
+footer .footer-logo{display:inline-block;background:#fff;border-radius:12px;padding:10px 16px;line-height:0}footer .footer-logo img{display:block;width:clamp(130px,18vw,190px);height:auto}
+footer a:hover,footer a:focus-visible{color:#fff}
+footer .copyright{border-top-color:#4a4a63}
 @media(max-width:700px){
-.nav-wrap{min-height:70px;gap:16px}.main-nav{margin-left:0}.main-nav>ul>li>a{padding:8px}
-.slicknav-ready #mobile-menu{width:auto;margin-left:auto}
-#mobile-menu .slicknav_btn{width:44px;height:44px;padding:12px;margin:0;background:transparent}
+.nav-wrap{padding:10px 0;min-height:64px}
+.site-header .logo img{width:clamp(130px,42vw,190px)}
+.main-nav{margin-left:0}.main-nav>ul>li>a{padding:8px}
+.slicknav-ready #mobile-menu{width:auto;position:static}
+#mobile-menu .slicknav_btn{position:absolute;right:0;top:50%;transform:translateY(-50%);width:44px;height:44px;padding:12px;margin:0;background:transparent}
 #mobile-menu .slicknav_menutxt{display:none}#mobile-menu .slicknav_icon-bar{background:var(--green);box-shadow:none}
 #mobile-menu .slicknav_nav{position:absolute;left:0;right:0;top:100%;margin-top:0;box-shadow:var(--shadow)}
 html:not(.slicknav-ready) .nav-wrap{flex-wrap:wrap}
 }
+/* Pricing and schedule tables scroll inside their own region on small screens. */
+.table-wrap{max-width:100%;-webkit-overflow-scrolling:touch}
+.stored-note{font-size:.88rem;color:var(--muted)}

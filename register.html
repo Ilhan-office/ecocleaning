@@ -14,7 +14,7 @@
 <header class="site-header">
   <div class="utility"><div class="shell utility-inner"><span>Eco-conscious cleaning for homes &amp; workplaces</span><a class="active" aria-current="page" href="register.html">Register</a></div></div>
   <div class="shell nav-wrap">
-    <a class="logo" href="index.html" aria-label="EcoCleaning home"><span>eco</span>Cleaning<i aria-hidden="true">&#9679;</i></a>
+    <a class="logo" href="index.html" aria-label="EcoCleaning home"><img src="images/ecocleaning-logo.png" alt="EcoCleaning" width="535" height="86"></a>
     <nav class="main-nav" aria-label="Main navigation"><ul id="main-menu"><li><a href="index.html">Home</a></li><li><a href="about_us.html">About Us</a></li><li><a href="services.html">Services</a><ul class="sub-menu"><li><a href="packages.html">Membership plans</a></li><li><a href="booking.html">Book a service</a></li></ul></li><li><a href="packages.html">Packages</a></li><li><a href="booking.html">Booking</a><ul class="sub-menu"><li><a href="booking.html#staff-tracking">Staff tracking demo</a></li></ul></li><li><a href="events.html">Events / News</a><ul class="sub-menu"><li><a class="active" aria-current="page" href="register.html">Register for updates</a></li></ul></li><li><a href="contact.html">Contact Us</a></li></ul></nav>
     <a class="btn nav-cta" href="booking.html">Book Now</a>
     <nav id="mobile-menu" aria-label="Mobile navigation"></nav>
@@ -23,7 +23,7 @@
 <main id="main-content" tabindex="-1">
 <section class="page-hero"><span class="eyebrow">Updates and events</span><h1>Register with EcoCleaning.</h1><p>Register your interest in updates or events. This demonstration validates your details without storing them or creating an account.</p></section>
 <section class="section narrow">
-<form id="registerForm" class="form-card" aria-describedby="registration-help"><h2>Your details</h2><p id="registration-help" class="note">All fields are required except comments. Passwords need at least 8 characters, one letter and one number. No details are stored or transmitted.</p><div class="form-grid">
+<form id="registerForm" class="form-card" aria-describedby="registration-help"><h2>Your details</h2><p id="registration-help" class="note">All fields are required except comments. Your signup is recorded in this browser only for the demonstration and is not sent to EcoCleaning.</p><div class="form-grid">
 <label>First name<input type="text" name="firstName" required minlength="2" maxlength="80" autocomplete="given-name" placeholder="First name"></label>
 <label>Last name<input type="text" name="lastName" required minlength="2" maxlength="80" autocomplete="family-name" placeholder="Last name"></label>
 <label class="full">Email<input type="email" name="email" required maxlength="254" autocomplete="email" placeholder="name@example.com"></label>
@@ -31,10 +31,9 @@
 <label class="full">Address<textarea name="address" rows="3" required minlength="5" maxlength="500" autocomplete="street-address" placeholder="Street address, town or city, and postal code"></textarea></label>
 <label class="full">Updates or event<select name="interest" required><option value="">Choose your interest</option><option>EcoCleaning updates</option><option>Spring Eco-Clean Festival</option><option>Holiday Home Refresh Deals</option><option>Allergy-Friendly Cleaning Awareness Week</option><option>Free Eco-Product Sampling Days</option></select></label>
 <label class="full">Comments (optional)<textarea name="comments" rows="3" maxlength="1000" placeholder="Any questions or accessibility requirements?"></textarea></label>
-<label>Password<input aria-describedby="registration-help" id="password" type="password" name="password" required minlength="8" maxlength="128" autocomplete="new-password"></label>
-<label>Confirm password<input aria-describedby="registration-help" id="confirmPassword" type="password" name="confirmPassword" required minlength="8" maxlength="128" autocomplete="new-password"></label>
-<label class="full checkbox"><input type="checkbox" name="terms" required> <span>I understand this is a demonstration and my details are not stored or sent.</span></label>
-</div><div class="form-message" role="status" tabindex="-1" aria-live="polite"></div><noscript><p>Enable JavaScript to use this demonstration form. No data will be sent.</p></noscript><button class="btn" type="submit" disabled>Register Interest</button></form>
+<label class="full checkbox"><input type="checkbox" name="terms" required> <span>I understand this is a demonstration: my signup is saved in this browser only and is not sent to EcoCleaning.</span></label>
+</div><div class="form-message" role="status" tabindex="-1" aria-live="polite"></div><noscript><p>Enable JavaScript to use this demonstration form. No data will be sent.</p></noscript><button class="btn" type="submit" disabled>Sign Up</button></form>
+<section id="signup-record" class="form-card" aria-labelledby="signup-record-title" hidden><h2 id="signup-record-title">Signups recorded in this browser</h2><ul id="signup-list"></ul><button id="clear-signups" type="button" class="btn btn-outline">Clear recorded signups</button></section>
 </section>
 <section class="section resource-section" aria-labelledby="mission-title">
   <div><span class="eyebrow">Our mission</span><h2 id="mission-title">A spotless home, without harming the planet.</h2><p>EcoCleaning uses only toxin-free, plant-based cleaning solutions.</p></div>
@@ -43,7 +42,7 @@
 </main>
 <footer>
   <div class="shell footer-grid">
-    <div><a class="logo footer-logo" href="index.html"><span>eco</span>Cleaning<i>●</i></a><p>Thoughtful cleaning solutions for healthier spaces and greener routines.</p></div>
+    <div><a class="footer-logo" href="index.html" aria-label="EcoCleaning home"><img src="images/ecocleaning-logo.png" alt="EcoCleaning" width="535" height="86"></a><p>Thoughtful cleaning solutions for healthier spaces and greener routines.</p></div>
     <div><h3>Explore</h3><a href="services.html">Services</a><a href="packages.html">Packages</a><a href="events.html">Events & News</a></div>
     <div><h3>Customer</h3><a href="booking.html">Book Online</a><a href="register.html">Register</a><a href="contact.html">Contact</a></div>
   </div>

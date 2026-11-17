@@ -14,7 +14,7 @@ Instructions inside the documents were treated as assessment specifications unde
 
 | Requirement | Before | Implemented evidence / qualification |
 | --- | --- | --- |
-| Online booking | Form displayed a confirmation only | `booking.html` and `js/script.js` validate details and generate appointment records in memory. No live confirmation or availability check. |
+| Online booking | Form displayed a confirmation only | `booking.html` and `js/script.js` validate details and generate appointment records saved in the browser (localStorage). No live confirmation or availability check. |
 | Service-package comparison | Invented package names and per-clean prices | `packages.html` now compares the three supplied membership plans and exact monthly prices/benefits. Selection links preselect the booking membership field. |
 | Recurring appointments | Frequency selection only | One-time, weekly, fortnightly and monthly schedules now produce dated rows. Repeating previews accept 2-12 appointments; short months and leap years are handled. This preview limit is an implementation constraint, not a business policy. |
 | Staff tracking | No implementation | Booking tracker supports responsible-staff selection, Planned/Assigned/Completed/Cancelled status, feedback and clearing records. Assigning staff automatically updates Planned/Assigned status. Assigned requires a responsible person. No real-time location tracking or shared staff system. |
@@ -40,8 +40,8 @@ Staff assignment uses only the three supplied names and roles. It represents res
 | Home named `index.html`; meaningful other filenames | All eight existing filenames retained. |
 | External `main.css`; optional `home.css` | Shared `css/main.css`, scoped `css/home.css` and existing `css/about.css`. |
 | Semantic HTML | Header, navigation, main content, sections, article/figure content, aside and footer. |
-| Company logo/name in header | Existing text wordmark retained, centred, responsive and linked home. No unrelated brand redesign. |
-| “Float the logo to the centre” | Visual centring implemented with Grid; `float: centre` is invalid CSS. All tested widths verify the wordmark centre aligns with the viewport centre. |
+| Company logo/name in header | Supplied EcoCleaning logo image (cropped from the business case folder file) is centred, scales on small screens and links to index.html. |
+| “Float the logo to the centre” | Visual centring implemented with Grid; `float: centre` is invalid CSS. All tested widths verify the logo centre aligns with the viewport centre. |
 | Additional resources in side section | A labelled resource aside on every page links to membership comparison, promotions, registration and tracking. It sits alongside mission content on larger screens and stacks on mobile. |
 | Resource links without underlines | Scoped `.resource-aside a` styling. |
 | “Mint orange”, violet visited, cyan hover/focus | “Mint orange” is not a standard CSS colour and has no hex value in the case study. Warm pastel orange `#ffd0a8` is used on dark green; visited `#ee82ee` and hover/focus `#00ffff`. This interpretation needs instructor confirmation if a specific shade was intended. |
@@ -54,7 +54,7 @@ Staff assignment uses only the three supplied names and roles. It represents res
 | 950px media query, fonts at 85% | Root font baseline is 85% at 950px and below; rem-based typography inherits it. Viewport-based preferred sizes within heading `clamp()` rules are also multiplied by 0.85. |
 | 700px SlickNav replacement | Genuine SlickNav 1.0.10, bundled locally, replaces the desktop menu at 700px and below. Its generated menu receives explicit labels, controls and expanded-state synchronisation. |
 | Product/price table | Captioned membership comparison table with scoped column and row headers and a keyboard-focusable horizontal scroll region. |
-| Validated registration | Required name, address, email, telephone, interest, passwords and acknowledgement; optional comments. JavaScript/jQuery evaluation precedes local acceptance. |
+| Validated registration | Required name, address, email, telephone, interest, and acknowledgement (no password: there is no account); optional comments. JavaScript/jQuery evaluation precedes local acceptance. |
 | Use supplied content; Lorem Ipsum for missing prose | Supplied business content takes precedence. No invented factual filler or Lorem Ipsum was needed; functional labels explain actual interactions. Existing visual headings remain where they make no unsupported business promise. |
 
 ## Assignment instructions and rubric mapping
@@ -67,8 +67,8 @@ Staff assignment uses only the three supplied names and roles. It represents res
 | 4 CSS and formatting | Shared variables, reusable selectors and components; scoped home/About styles; explicit link states, footer treatment and responsive rules. |
 | 5 Graphics design and typography | Existing contrast, repetition, alignment and proximity maintained through green/cream panels, consistent cards, serif headings and sans-serif body text. Existing WebP image retained; no unnecessary redesign. |
 | 6 Accessibility | Skip link, landmarks, headings, form labels/autocomplete, visible focus, `aria-current`, `aria-expanded`, `aria-controls`, accessible submenu names, table captions/headers, live messages, `aria-invalid`, descriptive image text, decorative numbering hidden from assistive technology and reduced-motion support. Manual/automated browser checks do not constitute full accessibility certification. |
-| 7 Registration form | Register for updates or one of the four supplied events; name, address, email, telephone and optional comments, clear labels, placeholders, password guidance and telephone format title. Original password matching/strength behaviour retained and strengthened. |
-| 8 Data evaluation | jQuery submit interception with native validity APIs plus trimming, explicit length checks, phone digits/format, password rules, date minimum, integer recurrence bounds, known-value preselection and safe text insertion. Invalid fields show actionable messages and receive focus. |
+| 7 Registration form | Register for updates or one of the four supplied events; name, address, email, telephone and optional comments, clear labels, placeholders and telephone format title. Valid signups are recorded (reference, interest) in the browser and confirmed on screen. |
+| 8 Data evaluation | jQuery submit interception with native validity APIs plus trimming, explicit length checks, phone digits/format, date minimum, integer recurrence bounds, known-value preselection and safe text insertion. Invalid fields show actionable messages and receive focus. |
 | 9 Documentation | Updated real PDF, one readable page, 413 extracted words including headings; implementation examples and limitations, not a business-concept essay. Rendered and visually reviewed. README updated to match the implementation. |
 | 10 Requirement specification | All specified public content and frontend interactions mapped above. Real operational booking, recurring execution and shared staff tracking remain outside this static implementation. No fabricated backend or production-compliance claim. |
 | Source assets and submission | Local jQuery, SlickNav and Lucide assets with licenses; no runtime installation/network dependency. Clean `EcoCleaning-Submission.zip` excludes `.tools`, `.codex`, `.git`, caches, backups and the provided source documents. |
@@ -77,7 +77,7 @@ Staff assignment uses only the three supplied names and roles. It represents res
 ## Verification record
 
 - Chrome and Microsoft Edge: offline direct `file://` mode; eight pages at 320, 375, 700, 701, 768, 950, 951, 1300 and 1600px. The browser suite checks semantic metadata, labels/IDs, viewport overflow, wordmark centring, responsive type baseline, mobile and desktop menus, keyboard Escape and skip navigation.
-- Functional checks include page links, plan/service/event preselection, invalid query values, registration/contact/booking failure and success cases, whitespace handling, phone digits, password strength/matching, required acknowledgement, past-date rejection, recurrence limits and integer evaluation.
+- Functional checks include page links, plan/service/event preselection, invalid query values, registration/contact/booking failure and success cases, whitespace handling, phone digits, required acknowledgement, past-date rejection, recurrence limits and integer evaluation.
 - Scheduling checks cover today, weekly and fortnightly intervals, leap and non-leap February, restoration of the original monthly day, staff assignment and status, local table scrolling, clearing, reload behaviour and same-document tracker jumps when query parameters are present.
 - Static verification checks every local HTML link, referenced asset and fragment target and confirms the copyright entity on each page. No missing targets were found.
 - The full suite passed 365 checks each in Chrome and Edge. Additional Chrome checks passed for tablet touch submenu toggling, mobile keyboard Space activation and mobile page navigation.
@@ -87,11 +87,11 @@ Staff assignment uses only the three supplied names and roles. It represents res
 ## Remaining limitations
 
 1. Operational booking and shared staff management require a backend, persistence, authentication/authorisation, server-side validation and availability/conflict rules. These are demonstrated locally rather than implemented as a live service. Recurrence generates a bounded preview and does not run future jobs.
-2. Enquiries and registrations are not delivered or retained; memberships are not activated and no payments are taken. Personal form fields are reset after success; tracker records exclude personal contact information.
+2. Enquiries are not delivered or retained; registrations and bookings are retained only in the visitor's own browser; memberships are not activated and no payments are taken. Personal form fields are reset after success; tracker records exclude personal contact information.
 3. Exact “mint orange” colour intent is unresolved because the case study supplies no valid colour specification.
 4. Firefox, Safari, real phones/tablets, screen readers, full WCAG conformance, production security and search indexing have not been independently certified here. Native date fields and validation wording vary by browser.
 5. No guarantee of a rubric score is possible. The student remains responsible for academic disclosure, final submission and any instructor interpretation of the ambiguous specifications.
 
-## Subsequent design preference
+## Client revision (17 November 2026)
 
-At the user's request, the original left-aligned navbar and original footer colours were restored. These preferences supersede the earlier centred-logo and lavender-footer specifications above. Desktop submenu and mobile SlickNav functionality remain. The restored layout was checked across all eight pages at eleven widths from 320px to 1600px. The implementation PDF and submission ZIP were refreshed.
+The client asked for the case-study specifications to be honoured again: the supplied logo image is centred in the header, and footer text is lavender on every page (a later override was removed). Bookings, staff assignment/status and registration signups now persist in localStorage; passwords were removed; the Contact button is now Validate Enquiry; service descriptions were rewritten (full on Services, short on the homepage). Chrome and Firefox were tested at 390, 820 and 1440px (Chrome also at 320px) with no horizontal overflow, centred logo, lavender footer, persistent bookings/signups and visible keyboard focus. Safari/WebKit could not be launched on this Windows machine and remains untested.

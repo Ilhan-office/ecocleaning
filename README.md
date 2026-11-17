@@ -35,9 +35,9 @@ Development tools, backups and checks in `.tools/` are excluded from website ass
 | `booking.html` | Validated booking, one-time or recurring date generation, staff assignments and appointment status demo |
 | `events.html` | Four supplied events/promotions; links preselect registration interest |
 | `contact.html` | Validated enquiry demonstration and supplied customer-care role |
-| `register.html` | Updates/event registration with required address and telephone, optional comments, and existing password checks |
+| `register.html` | Updates/event registration with required address and telephone, optional comments, and no password (there is no account to sign in to); each valid signup is recorded in the browser |
 
-Every page has a left-aligned home-linked wordmark, consistent two-tier navigation, resource aside, original dark footer, descriptive metadata, semantic landmarks and skip link. SlickNav replaces desktop navigation at 700px and below. Shared layout changes occur at 950px and 700px; the font baseline is 85% at 950px and below. Containers are 95% wide up to 1300px. Tables scroll locally on narrow screens. Homepage CSS has additional responsive refinements.
+Every page has the supplied EcoCleaning logo image (from the business case folder) centred in the header, scalable and linked to index.html, consistent two-tier navigation, resource aside, dark footer with lavender text, descriptive metadata, semantic landmarks and skip link. SlickNav replaces desktop navigation at 700px and below. Shared layout changes occur at 950px and 700px; the font baseline is 85% at 950px and below. Containers are 95% wide up to 1300px. Tables scroll locally on narrow screens. Homepage CSS has additional responsive refinements.
 
 ## Form validation
 
@@ -47,13 +47,13 @@ All forms prevent network submission, trim ordinary text, validate required fiel
 | --- | --- |
 | Booking | Name: 2-160 characters; valid email; phone: 7-20 permitted characters including at least 7 digits; required service, membership, frequency, date, time and address (5-500 characters). Notes optional, up to 1000 characters. Dates cannot precede the local current date. Recurring bookings require an integer count of 2-12. |
 | Contact | Name: 2-160 characters; valid email; subject: 3-160 characters; message: 10-2000 characters. |
-| Registration | First/last names: 2-80 characters each; valid email; phone as above; address: 5-500 characters; updates/event interest; acknowledgement checkbox. Password and confirmation: 8-128 characters, matching, with a letter and digit. Comments optional, up to 1000 characters. |
+| Registration | First/last names: 2-80 characters each; valid email; phone as above; address: 5-500 characters; updates/event interest; acknowledgement checkbox. Comments optional, up to 1000 characters. |
 
-The tracker retains only service, membership, frequency, date/time, demo reference, staff assignment and status while the booking page is open. Monthly recurrence clamps to the month's last day, then restores the original day when possible. Status cannot become Assigned without a responsible staff member. The schedule can be cleared.
+The tracker retains only service, membership, frequency, date/time, demo reference, staff assignment and status in this browser (localStorage), so they persist after reloading. Monthly recurrence clamps to the month's last day, then restores the original day when possible. Status cannot become Assigned without a responsible staff member. The schedule can be cleared.
 
 ## Known limitations
 
-- No server, database, authentication, real booking confirmation, availability checking, payment, enquiry delivery, account persistence or subscription activation. The tracker is an in-memory demonstration, not live staff location tracking. Reloading or leaving the booking page clears records.
+- No server, database, authentication, real booking confirmation, availability checking, payment, enquiry delivery, account persistence or subscription activation. Bookings, recurring dates, staff assignment, status and registration signups are saved in this browser's localStorage and survive reloads, but they are not shared across users or devices, and the tracker is not live staff location tracking. The Contact page validates an enquiry only (button: Validate Enquiry).
 - Staff names and roles follow the case study; assigning a responsible member demonstrates tracking and does not assert that management staff perform cleaning visits.
 - The case study supplies no contact details, opening hours, event dates/locations, discount percentages or per-clean prices; these are not invented.
 - Client-side checks do not verify real addresses, telephone ownership or email deliverability and do not replace server-side validation.

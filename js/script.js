@@ -89,32 +89,40 @@
   }
   $("#bookingForm [name=frequency]").on("change",updateRecurrence);
   updateRecurrence();
+  function labelOf(field) {
+    var label=field.closest("label"), text=label&&label.childNodes[0]?label.childNodes[0].textContent:"";
+    return (text||field.name||"this field").replace(/\(optional\)|\(demo\)/g,"").trim();
+  }
   function validate(form) {
-    var fields=Array.from(form.querySelectorAll("input, select, textarea"));
+    var fields=Array.from(form.querySelectorAll("input, select, textarea")), today=localISO(new Date());
     fields.forEach(function (field) {
       field.setCustomValidity(""); field.removeAttribute("aria-invalid");
       if (field.disabled) return;
-      if (field.type !== "password" && field.tagName !== "SELECT" && !["checkbox","date","number"].includes(field.type)) field.value=field.value.trim();
-      if (field.required && field.value.trim().length===0 && field.type!=="checkbox") field.setCustomValidity("Please complete this field.");
-      if (field.value && field.minLength>0 && field.value.length<field.minLength) field.setCustomValidity("Please enter at least "+field.minLength+" characters.");
-      if (field.maxLength>0 && field.value.length>field.maxLength) field.setCustomValidity("Please use no more than "+field.maxLength+" characters.");
-      if (field.type==="tel" && field.value && (!/^[0-9 +()\-]{7,20}$/.test(field.value) || (field.value.match(/[0-9]/g)||[]).length<7)) field.setCustomValidity("Enter at least 7 digits using only digits, spaces, +, parentheses or hyphens (maximum 20 characters).");
+      var name=labelOf(field);
+      if (!["checkbox","date","number"].includes(field.type) && field.tagName!=="SELECT") field.value=field.value.trim();
+      if (field.type==="checkbox") { if (field.required && !field.checked) field.setCustomValidity("Tick the box to confirm you understand how this demonstration works."); return; }
+      if (field.required && field.value.trim().length===0) { field.setCustomValidity(field.tagName==="SELECT"?"Choose an option for "+name+".":"Enter your "+name.toLowerCase()+" to continue."); return; }
+      if (field.value && field.minLength>0 && field.value.length<field.minLength) field.setCustomValidity(name+" needs at least "+field.minLength+" characters; add "+(field.minLength-field.value.length)+" more.");
+      if (field.maxLength>0 && field.value.length>field.maxLength) field.setCustomValidity(name+" can have at most "+field.maxLength+" characters; shorten it.");
+      if (field.type==="email" && field.value && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(field.value)) field.setCustomValidity("Enter a valid email address in the form name@example.com.");
+      if (field.type==="tel" && field.value && (!/^[0-9 +()\-]{7,20}$/.test(field.value) || (field.value.match(/[0-9]/g)||[]).length<7)) field.setCustomValidity("Enter a telephone number with at least 7 digits, using only digits, spaces, +, parentheses or hyphens (e.g. +44 7700 900123).");
+      if (field.type==="date" && field.value && field.value<today) field.setCustomValidity("That date has passed. Choose today or a future date.");
+      if (field.type==="number" && field.value!=="" && (Number(field.value)<Number(field.min) || Number(field.value)>Number(field.max) || !Number.isInteger(Number(field.value)))) field.setCustomValidity("Enter a whole number of appointments between "+field.min+" and "+field.max+".");
     });
-    if (form.id==="registerForm") {
-      var password=form.elements.password, confirmation=form.elements.confirmPassword;
-      if (password.value && (!/[A-Za-z]/.test(password.value)||!/[0-9]/.test(password.value))) password.setCustomValidity("Password must contain at least one letter and one number.");
-      if (confirmation.value && password.value!==confirmation.value) confirmation.setCustomValidity("Passwords do not match.");
-    }
     var firstInvalid=fields.find(function (field) { return !field.disabled && !field.checkValidity(); });
     fields.forEach(function (field) { if (!field.disabled && !field.validity.valid) field.setAttribute("aria-invalid","true"); });
     if (firstInvalid) {
       showMessage($(form),firstInvalid.validationMessage,false);
-      firstInvalid.focus(); firstInvalid.reportValidity(); return false;
+      firstInvalid.focus(); return false;
     }
     return true;
   }
-  // In-memory state only: personal contact details never enter the tracker.
-  var appointments=[], nextReference=1;
+  // Records are kept in this browser's localStorage (no server), so they survive a reload.
+  function load(key,fallback) { try { var v=JSON.parse(window.localStorage.getItem(key)); return v===null?fallback:v; } catch (e) { return fallback; } }
+  function save(key,value) { try { window.localStorage.setItem(key,JSON.stringify(value)); return true; } catch (e) { return false; } }
+  // Appointment records hold booking details only; contact details are not stored in the tracker.
+  var appointments=load("ecoCleaningAppointments",[]), nextReference=Number(load("ecoCleaningNextRef",1))||1;
+  function persist() { return save("ecoCleaningAppointments",appointments) && save("ecoCleaningNextRef",nextReference); }
   var staff=["Unassigned","Hannah Lee - Director & Founder","Marcus Hill - Operations Supervisor","Chloe Walters - Customer Care Coordinator"];
   var statuses=["Planned","Assigned","Completed","Cancelled"];
   function appointmentDates(start,frequency,count) {
@@ -148,6 +156,7 @@
             $("#tracking-message").text("Choose a responsible staff member before marking the appointment as assigned.");
           } else $("#tracking-message").text(appointment.reference+" updated: "+appointment.status+"; "+appointment.staff+".");
           $row.find("select").eq(1).val(appointment.status);
+          persist();
         });
         $select.appendTo($cell); $cell.appendTo($row);
       });
@@ -157,12 +166,23 @@
     $("#schedule-table").prop("hidden",appointments.length===0);
     $("#clear-schedule").prop("disabled",appointments.length===0);
   }
-  $("#clear-schedule").on("click",function () { appointments=[]; renderSchedule(); $("#tracking-message").text("Demo schedule cleared."); });
+  $("#clear-schedule").on("click",function () { appointments=[]; persist(); renderSchedule(); $("#tracking-message").text("Saved schedule cleared."); });
+  renderSchedule();
+  // Registration records (name, address, email, telephone, interest, comments).
+  var signups=load("ecoCleaningSignups",[]);
+  function renderSignups() {
+    var $list=$("#signup-list").empty();
+    signups.forEach(function (item) {
+      $("<li>",{text:item.reference+": "+item.firstName+" "+item.lastName+" signed up for "+item.interest+" ("+item.recorded+")."}).appendTo($list);
+    });
+    $("#signup-record").prop("hidden",signups.length===0);
+  }
+  $("#clear-signups").on("click",function () { signups=[]; save("ecoCleaningSignups",signups); renderSignups(); $("#registerForm .form-message").text("Recorded signups cleared.").removeClass("error").addClass("success"); });
+  renderSignups();
   $("#bookingForm, #contactForm, #registerForm").each(function () {
     this.noValidate=true; $(this).find("button[type=submit]").prop("disabled",false);
   }).on("input change","input, select, textarea",function () {
     this.setCustomValidity(""); this.removeAttribute("aria-invalid");
-    if (this.name==="password") { var confirm=this.form.elements.confirmPassword; confirm.setCustomValidity(""); confirm.removeAttribute("aria-invalid"); }
     $(this.form).find(".form-message").removeClass("success error").empty();
   }).on("submit",function (e) {
     e.preventDefault(); updateMinimumDate();
@@ -171,12 +191,19 @@
       var data=Object.fromEntries(new FormData(this).entries());
       var count=data.frequency==="One-time"?1:Number(data.occurrences);
       appointmentDates(data.date,data.frequency,count).forEach(function (date) {
-        appointments.push({reference:"DEMO-"+nextReference++,service:data.service,plan:data.package,frequency:data.frequency,date:date,time:data.time,staff:"Unassigned",status:"Planned"});
+        appointments.push({reference:"EC-"+nextReference++,service:data.service,plan:data.package,frequency:data.frequency,date:date,time:data.time,staff:"Unassigned",status:"Planned"});
       });
+      var kept=persist();
       renderSchedule();
-      showMessage($(this),count+" demo appointment"+(count>1?"s":"")+" added to the schedule below. No live booking was created.",true);
-    } else if (this.id==="registerForm") showMessage($(this),"Your interest has been validated. Demo only: no registration, account or subscription was stored or sent.",true);
-    else showMessage($(this),"Your enquiry has been validated. Demo only: no message was sent.",true);
+      showMessage($(this),count+" appointment"+(count>1?"s":"")+" saved to the schedule below"+(kept?" and kept in this browser.":", but this browser blocked storage so they will be lost on reload.")+" No live booking or payment was made.",kept);
+    } else if (this.id==="registerForm") {
+      var info=Object.fromEntries(new FormData(this).entries()), ref="SIGNUP-"+(signups.length?Number(signups[signups.length-1].reference.split("-")[1])+1:1);
+      signups.push({reference:ref,firstName:info.firstName,lastName:info.lastName,address:info.address,email:info.email,phone:info.phone,interest:info.interest,comments:info.comments||"",recorded:new Date().toLocaleString()});
+      var stored=save("ecoCleaningSignups",signups);
+      renderSignups();
+      showMessage($(this),stored?"Thank you, "+info.firstName+". Your signup for "+info.interest+" has been recorded as "+ref+" in this browser. It is not sent to EcoCleaning.":"Your details are valid, but this browser blocked storage, so the signup could not be recorded.",stored);
+    }
+    else showMessage($(this),"Your enquiry has passed validation. Demo only: this form does not send messages, so please use another channel to contact EcoCleaning.",true);
     this.reset(); updateRecurrence(); $(this).find(".form-message").trigger("focus");
   });
 })(jQuery);

@@ -14,7 +14,7 @@
 <header class="site-header">
   <div class="utility"><div class="shell utility-inner"><span>Eco-conscious cleaning for homes &amp; workplaces</span><a href="register.html">Register</a></div></div>
   <div class="shell nav-wrap">
-    <a class="logo" href="index.html" aria-label="EcoCleaning home"><span>eco</span>Cleaning<i aria-hidden="true">&#9679;</i></a>
+    <a class="logo" href="index.html" aria-label="EcoCleaning home"><img src="images/ecocleaning-logo.png" alt="EcoCleaning" width="535" height="86"></a>
     <nav class="main-nav" aria-label="Main navigation"><ul id="main-menu"><li><a href="index.html">Home</a></li><li><a href="about_us.html">About Us</a></li><li><a href="services.html">Services</a><ul class="sub-menu"><li><a href="packages.html">Membership plans</a></li><li><a href="booking.html">Book a service</a></li></ul></li><li><a href="packages.html">Packages</a></li><li><a class="active" aria-current="page" href="booking.html">Booking</a><ul class="sub-menu"><li><a href="booking.html#staff-tracking">Staff tracking demo</a></li></ul></li><li><a href="events.html">Events / News</a><ul class="sub-menu"><li><a href="register.html">Register for updates</a></li></ul></li><li><a href="contact.html">Contact Us</a></li></ul></nav>
     <a class="btn nav-cta" href="booking.html">Book Now</a>
     <nav id="mobile-menu" aria-label="Mobile navigation"></nav>
@@ -24,7 +24,7 @@
 <section class="page-hero"><span class="eyebrow">Online booking</span><h1>Schedule your eco-cleaning visit.</h1><p>Complete the form below. Required fields are validated before submission.</p></section>
 <section class="section form-layout">
 <form id="bookingForm" class="form-card" aria-describedby="booking-help">
-<h2>Booking details</h2><p id="booking-help" class="note">All fields except special notes are required. This demo keeps appointment details only while this page remains open. No payment or live booking is made.</p>
+<h2>Booking details</h2><p id="booking-help" class="note">All fields except special notes are required. Appointments are saved in this browser so you can retrieve them later. No payment or live booking is made.</p>
 <div class="form-grid">
 <label>Full name<input type="text" name="name" required minlength="2" maxlength="160" autocomplete="name" placeholder="Full name"></label>
 <label>Email<input type="email" name="email" required maxlength="254" autocomplete="email" placeholder="name@example.com"></label>
@@ -40,12 +40,12 @@
 </div>
 <div class="form-message" role="status" tabindex="-1" aria-live="polite"></div><noscript><p>Enable JavaScript to use this demonstration form. No data will be sent.</p></noscript><button class="btn" type="submit" disabled>Request Booking</button>
 </form>
-<aside class="feature-box sticky"><span class="eyebrow">Booking guide</span><h2>Try the booking process</h2><ol class="number-list"><li><b>Choose</b><span>Select a service, membership plan and frequency.</span></li><li><b>Schedule</b><span>Preview up to 12 recurring appointments.</span></li><li><b>Track</b><span>Assign a responsible staff member and update demo appointment status below.</span></li></ol><p class="note">No real appointment is created, and staff availability is not checked.</p></aside>
+<aside class="feature-box sticky"><span class="eyebrow">Booking guide</span><h2>Try the booking process</h2><ol class="number-list"><li><b>Choose</b><span>Select a service, membership plan and frequency.</span></li><li><b>Schedule</b><span>Preview up to 12 recurring appointments.</span></li><li><b>Track</b><span>Assign a responsible staff member and update demo appointment status below.</span></li></ol><p class="note">Records are saved in this browser only, not shared across devices, and staff availability is not checked.</p></aside>
 </section>
-<section id="staff-tracking" class="section" aria-labelledby="tracking-title"><div class="section-head"><span class="eyebrow">Staff tracking demonstration</span><h2 id="tracking-title">Appointment schedule</h2><p id="tracking-help">Validated bookings appear here. Assign a responsible staff member and update progress. These are local demonstration records, not live staff locations or confirmed visits. Reloading or leaving this page clears them.</p></div>
-<p id="schedule-empty">No demo appointments yet. Complete the booking form to add a schedule.</p>
+<section id="staff-tracking" class="section" aria-labelledby="tracking-title"><div class="section-head"><span class="eyebrow">Staff tracking demonstration</span><h2 id="tracking-title">Appointment schedule</h2><p id="tracking-help">Validated bookings appear here. Assign a responsible staff member and update progress. Appointments, recurring dates, staff assignment and status are saved in this browser and are still here after you reload. They are not shared with other devices and are not live staff locations or confirmed visits.</p></div>
+<p id="schedule-empty">No appointments saved yet. Complete the booking form to add a schedule.</p>
 <div id="schedule-table" class="table-wrap" role="region" aria-label="Demo appointment schedule" tabindex="0" hidden><table><caption>Appointments and responsible staff</caption><thead><tr><th scope="col">Reference</th><th scope="col">Service and plan</th><th scope="col">Date / time</th><th scope="col">Responsible staff</th><th scope="col">Status</th></tr></thead><tbody id="schedule-rows"></tbody></table></div>
-<p id="tracking-message" class="form-message" role="status" aria-live="polite"></p><button id="clear-schedule" type="button" class="btn btn-outline" disabled>Clear demo schedule</button>
+<p id="tracking-message" class="form-message" role="status" aria-live="polite"></p><button id="clear-schedule" type="button" class="btn btn-outline" disabled>Clear saved schedule</button>
 </section>
 <section class="section resource-section" aria-labelledby="mission-title">
   <div><span class="eyebrow">Our mission</span><h2 id="mission-title">A spotless home, without harming the planet.</h2><p>EcoCleaning uses only toxin-free, plant-based cleaning solutions.</p></div>
@@ -54,7 +54,7 @@
 </main>
 <footer>
   <div class="shell footer-grid">
-    <div><a class="logo footer-logo" href="index.html"><span>eco</span>Cleaning<i>●</i></a><p>Thoughtful cleaning solutions for healthier spaces and greener routines.</p></div>
+    <div><a class="footer-logo" href="index.html" aria-label="EcoCleaning home"><img src="images/ecocleaning-logo.png" alt="EcoCleaning" width="535" height="86"></a><p>Thoughtful cleaning solutions for healthier spaces and greener routines.</p></div>
     <div><h3>Explore</h3><a href="services.html">Services</a><a href="packages.html">Packages</a><a href="events.html">Events & News</a></div>
     <div><h3>Customer</h3><a href="booking.html">Book Online</a><a href="register.html">Register</a><a href="contact.html">Contact</a></div>
   </div>

@@ -13,4 +13,5 @@ EcoCleaning-Documentation.pdf is the implementation report (maximum 500 words).
 EcoCleaning-Submission.zip is the clean submission package.
 
 All functionality is frontend-only. No real booking, payment, registration or
-enquiry is transmitted. Demo appointments disappear on page reload/navigation.
+enquiry is transmitted. Bookings and signups are saved in this browser (localStorage) only; they persist
+after reload but are not shared across devices.
