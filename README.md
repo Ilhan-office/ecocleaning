@@ -67,4 +67,4 @@ Use current Chrome, Edge, Firefox or Safari. The code requires modern Grid, Flex
 
 ## Submission
 
-`EcoCleaning-Submission.zip` contains the eight pages, required local assets, README, audit and PDF. Extract it and open `index.html`. Tooling, caches, Git metadata and backups are excluded. Review your programme's originality and AI-use disclosure rules before submitting; no grade or full accessibility certification is claimed.
+`DAM104_EcoCleaning.zip` contains the eight pages, required local assets, README, audit and PDF. Extract it and open `index.html`. Tooling, caches, Git metadata and backups are excluded. Review your programme's originality and AI-use disclosure rules before submitting; no grade or full accessibility certification is claimed.

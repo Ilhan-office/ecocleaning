@@ -71,7 +71,7 @@ Staff assignment uses only the three supplied names and roles. It represents res
 | 8 Data evaluation | jQuery submit interception with native validity APIs plus trimming, explicit length checks, phone digits/format, date minimum, integer recurrence bounds, known-value preselection and safe text insertion. Invalid fields show actionable messages and receive focus. |
 | 9 Documentation | Updated real PDF, one readable page, 413 extracted words including headings; implementation examples and limitations, not a business-concept essay. Rendered and visually reviewed. README updated to match the implementation. |
 | 10 Requirement specification | All specified public content and frontend interactions mapped above. Real operational booking, recurring execution and shared staff tracking remain outside this static implementation. No fabricated backend or production-compliance claim. |
-| Source assets and submission | Local jQuery, SlickNav and Lucide assets with licenses; no runtime installation/network dependency. Clean `EcoCleaning-Submission.zip` excludes `.tools`, `.codex`, `.git`, caches, backups and the provided source documents. |
+| Source assets and submission | Local jQuery, SlickNav and Lucide assets with licenses; no runtime installation/network dependency. Clean `DAM104_EcoCleaning.zip` excludes `.tools`, `.codex`, `.git`, caches, backups and the provided source documents. |
 | Academic honesty / originality / deadline | No originality declaration, grade, deadline compliance or university submission is asserted. Existing AI-generated hero provenance remains in `images/README.md`; the student must review applicable disclosure rules and submission timing. |
 
 ## Verification record

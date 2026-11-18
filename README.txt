@@ -10,7 +10,7 @@ events.html, contact.html, register.html.
 See README.md for running instructions, implemented features and limitations.
 See ASSIGNMENT-AUDIT.md for the case-study, assignment and rubric audit.
 EcoCleaning-Documentation.pdf is the implementation report (maximum 500 words).
-EcoCleaning-Submission.zip is the clean submission package.
+DAM104_EcoCleaning.zip is the submission package.
 
 All functionality is frontend-only. No real booking, payment, registration or
 enquiry is transmitted. Bookings and signups are saved in this browser (localStorage) only; they persist
