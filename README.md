@@ -18,7 +18,7 @@ css/vendor/                  SlickNav styles
 js/                          script.js
 js/vendor/                   jQuery, SlickNav, Lucide and licenses
 images/                      Hero WebP and image provenance
-EcoCleaning-Documentation.pdf Implementation report (maximum 500 words)
+Implementation Report.pdf       Implementation report (maximum 500 words)
 ASSIGNMENT-AUDIT.md           Requirements, evidence and remaining limits
 ```
 
@@ -63,7 +63,7 @@ The tracker retains only service, membership, frequency, date/time, demo referen
 
 Direct offline `file://` checks cover all eight pages at 320, 375, 700, 701, 768, 950, 951, 1300 and 1600px, keyboard/mobile navigation, form success and failure cases, and recurring-date/staff-tracking behaviour. Local file, asset and fragment targets are checked. See the audit for browser results and scope.
 
-Use current Chrome, Edge, Firefox or Safari. The code requires modern Grid, Flexbox, CSS custom properties, `clamp()`, `:focus-visible`, `URLSearchParams`, `FormData` and `Object.fromEntries()`. Chrome and Edge were tested; Firefox, Safari, physical devices and assistive technologies were not tested here. Internet Explorer is unsupported. Native date pickers and validation messages vary by browser.
+Use current Chrome, Edge, Firefox or Safari. The code requires modern Grid, Flexbox, CSS custom properties, `clamp()`, `:focus-visible`, `URLSearchParams`, `FormData` and `Object.fromEntries()`. **Verified browser results:** On 25 November 2026 the ZIP was freshly extracted and `index.html` and the seven other pages were opened directly over `file://` (no Live Server) in Google Chrome 158.0.8127.38 and Microsoft Edge 158.0.4370.33 (automated Playwright runs, Windows 11). At 320, 390, 820 and 1440px in each browser: no horizontal overflow, centred logo, lavender footer text, all images loaded, one `h1` per page, jQuery loaded, SlickNav present at 700px and below and no page script errors or failed requests. Also confirmed in each: empty registration submit is blocked, the first Tab stop is the skip link with a visible focus outline, the mobile SlickNav menu opens, and `localStorage` works on `file://`. **Firefox was not verified:** Playwright's Firefox 1572 build would not start on this machine (launch timed out, headless and headed), so no Firefox results exist. **Safari/WebKit was not verified:** the WebKit build reported missing system dependencies. Physical devices and assistive technologies were not tested. Earlier documents that said Firefox was tested are unsupported by any saved test record. Internet Explorer is unsupported. Native date pickers and validation messages vary by browser.
 
 ## Submission
 
